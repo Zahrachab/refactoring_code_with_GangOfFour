@@ -11,14 +11,23 @@ public abstract class Enclos implements Comparable{
 	protected int max;
 	private int adr;
 	
+	
 	public int getId(){return this.identifiant;}
-
+	public int getMax(){return this.max;}
+	public int getAdr(){return this.adr;}
+	public double getlongueur(){return this.longueur;}
+	public double getlargeur(){return this.largeur;}
+	public abstract <T> Object getType();
 	public Enclos(int id, double lng, double lrg, int max){
 		animaux = new HashSet<Animal>();
 		this.identifiant = id; this.longueur = lng ; this.largeur = lrg; this.max = max;
 	}
-	public int getMax(){return this.max;}
-	
+	 public void setId(int id){this.identifiant=id;}
+	 public void setAdr(int adr){this.adr = adr;}
+	 public void setMax(int m){this.max=m;}
+	 public void setlong(double l){this.longueur = l;}
+	 public void setlarg(double l){this.largeur = l;}
+	public  abstract void setType(Object O);
 	public abstract boolean marche(Animal a);
 	
 	public void afficher(){}
@@ -86,7 +95,7 @@ public abstract class Enclos implements Comparable{
 		return this.getEspeces().contains(e);
 	}
 	
-	public int getAdr(){return this.adr;} public void setAdr(int adr){this.adr = adr;}
+	
 	
 	public abstract void colorier();
 }

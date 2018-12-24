@@ -14,7 +14,10 @@ public class Insectarium extends Enclos {
 		this.barriere = Barriere.Verre;
 	}
 	
-
+	public <T> Object getType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	public boolean marche(Animal a) {
 		boolean resultat=false;
 		if (a.getEspece() instanceof Invertebre && a.getEspece().getHabitat() != Habitat.eau) resultat = true;
@@ -33,5 +36,11 @@ public class Insectarium extends Enclos {
 	public String toString() {
 		// TODO Auto-generated method stub
 		return "Insectarium" + String.valueOf(identifiant);
+	}
+
+	@Override
+	public void setType(Object O) {
+		// TODO Auto-generated method stub
+		
 	}
 }

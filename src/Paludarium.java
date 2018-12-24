@@ -34,4 +34,15 @@ public class Paludarium extends Enclos {
 		// TODO Auto-generated method stub
 		return "Paludarium" + String.valueOf(identifiant);
 	}
+
+
+	public <T> Object getType() {
+		return (TypeSol) this.typeSol;
+	}
+
+
+	public void setType(Object O) {
+	this.typeSol= (TypeSol) O;
+		
+	}
 }

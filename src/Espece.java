@@ -134,7 +134,16 @@ public  class Espece {
 		return resultat;
 	}
 	
-	private RegimeAlimentaire MakeRegime(String s) {
+	
+	public void setContinents(String c){this.continents=c;}
+	public void setRegime(RegimeAlimentaire r){this.regime=r;}
+	public void setDuree(int d){this.dureeVie=d;}
+	public void setHabitat(Habitat h){this.habitat=h;}
+public void setNom(String name){
+		
+		this.nom=name;
+	}
+	public RegimeAlimentaire MakeRegime(String s) {
 		RegimeAlimentaire resultat= null;
 		switch (s){
 		case "0": resultat = RegimeAlimentaire.Carnivore; break;

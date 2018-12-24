@@ -15,6 +15,7 @@ public class Cage extends Enclos {
 	}
 
 	private TypeSol typeSol;
+
 	
 	public boolean marche(Animal a) {
 		boolean resultat=false;
@@ -38,4 +39,24 @@ public class Cage extends Enclos {
 		// TODO Auto-generated method stub
 		return "Cage" + String.valueOf(identifiant);
 	}
+
+	@Override
+	public <T> Object getType() {
+		// TODO Auto-generated method stub
+		return (TypeSol) this.typeSol;
+	}
+
+	
+	public void setType(Object O) {
+	this.typeSol=(TypeSol) O;	
+		
+	}
+
+	
+
+	
+
+	
+	
+	
 }

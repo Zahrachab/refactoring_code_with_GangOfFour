@@ -26,6 +26,7 @@ public class Voliere extends Enclos {
 		return resultat;
 	}
 
+	
 	@Override
 	public void colorier() {
 		PlanZoo.cases.get(this.getAdr()).setBackground(Color.YELLOW);
@@ -34,6 +35,20 @@ public class Voliere extends Enclos {
 	public String toString() {
 		// TODO Auto-generated method stub
 		return "Voliere" + String.valueOf(identifiant);
+	}
+
+
+	@Override
+	public <T> Object getType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void setType(Object O) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

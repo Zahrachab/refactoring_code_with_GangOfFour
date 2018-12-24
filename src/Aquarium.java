@@ -13,6 +13,9 @@ public class Aquarium extends Enclos {
 	}
 	private double contenance;
 	private TypeEau typeEau;
+	
+
+
 	public boolean marche (Animal a) {
 		boolean resultat=false;
 		if ( a.getEspece().getHabitat() == Habitat.eau) resultat = true;
@@ -31,6 +34,16 @@ public class Aquarium extends Enclos {
 	public String toString() {
 		// TODO Auto-generated method stub
 		return "Aquarium" + String.valueOf(identifiant);
+	}
+	@Override
+	public <T> Object getType() {
+		// TODO Auto-generated method stub
+		return (TypeEau) this.typeEau;
+	}
+	@Override
+	public void setType(Object O) {
+	this.typeEau= (TypeEau)O;
+		
 	}
 	
 
