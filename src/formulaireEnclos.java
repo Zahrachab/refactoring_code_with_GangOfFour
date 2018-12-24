@@ -20,7 +20,8 @@ import Enum.*;
 
 
 public class formulaireEnclos extends JFrame {
-	
+
+	private EnclosCreator enclosCreator;
 	protected Zoo zoo;
 	private JPanel contentPane;
 	private JTextField entrerID;
@@ -39,10 +40,27 @@ public class formulaireEnclos extends JFrame {
 	//private boolean selectionne;
 	JButton enregistrer;
 	JPanel panel;
-	
+
+
+	private static EnclosCreator getChainOfEnclosCreators(){
+
+		EnclosCreator paludariumCreator = new PaludariumCreator();
+		EnclosCreator cageCreator = new CageCreator();
+		EnclosCreator insectariumCreator = new InsectariumCreator();
+		EnclosCreator aquariumCreator = new AquariumCreator();
+		EnclosCreator voilereCreator = new VoliereCreator();
+
+
+		paludariumCreator.setNextCreator(cageCreator);
+		cageCreator.setNextCreator(insectariumCreator);
+		insectariumCreator.setNextCreator(aquariumCreator);
+		aquariumCreator.setNextCreator(voilereCreator);
+
+		return paludariumCreator;
+	}
 
 	public formulaireEnclos(Zoo zoo) {
-		this.zoo = zoo;
+
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 616, 567);
@@ -116,74 +134,11 @@ public class formulaireEnclos extends JFrame {
 		class Ajout implements ActionListener{
     		public void actionPerformed(ActionEvent e) {
     			Enclos enclos= null;
-    			String selectionne = (String) comboBox.getSelectedItem();
-    			
-    			
-    			
-    			if (selectionne.equals("Paludarium")){
-    				String typeSol_enum = (String) entrerTypeSol.getSelectedItem();
-    				TypeSol type=null;
-    				if (typeSol_enum == "Sable")type=TypeSol.Sable;
-    				else if (typeSol_enum == "Argile")type=TypeSol.Argile;
-    				else if (typeSol_enum == "Roches")type=TypeSol.Roches;
-    				else if (typeSol_enum == "Plantes")type=TypeSol.Plantes;
-    				else if (typeSol_enum == "Glaces")type=TypeSol.Glaces;
-    				try{
-    				enclos = new Paludarium(Integer.parseInt(entrerID.getText()),Double.parseDouble(entrerLng.getText()),Double.parseDouble(entrerLrg.getText()),Integer.parseInt(entrerMax.getText()),type, Double.parseDouble(entrerChamp2.getText()));	
-    				}
-    				catch(Exception excep ){
-    					JOptionPane.showMessageDialog(null,"Format incorrect");
-    				}
-    			}
-    			
-    			else if (selectionne.equals("Voliere")){
-    				
-    				try{
-    					enclos = new Voliere(Integer.parseInt(entrerID.getText()),Double.parseDouble(entrerLng.getText()),Double.parseDouble(entrerLrg.getText()),Integer.parseInt(entrerMax.getText()) ,Double.parseDouble(entrerChamp2.getText()));
-        				}
-        				catch(Exception excep ){
-        					JOptionPane.showMessageDialog(null,"Format incorrect");
-        				}
-
-    				
-    			}
-    			else if (selectionne.equals("Cage")){
-    				String typeSol_enum1 = (String) entrerTypeSol.getSelectedItem();
-        				TypeSol type=null;
-        				if (typeSol_enum1 == "Sable")type=TypeSol.Sable;
-        				else if (typeSol_enum1 == "Argile")type=TypeSol.Argile;
-        				else if (typeSol_enum1 == "Roches")type=TypeSol.Roches;
-        				else if (typeSol_enum1 == "Plantes")type=TypeSol.Plantes;
-        				else if (typeSol_enum1 == "Glaces")type=TypeSol.Glaces;
-        				try{
-        					enclos = new Cage(Integer.parseInt(entrerID.getText()),Double.parseDouble(entrerLng.getText()),Double.parseDouble(entrerLrg.getText()),Integer.parseInt(entrerMax.getText()) ,type);
-            				}
-            				catch(Exception excep ){
-            					JOptionPane.showMessageDialog(null,"Format incorrect");
-            				}
-        			}
-    			else if (selectionne.equals("Aquarium")){
-    				TypeEau type=null;
-    				String typeEau_enum = (String) entrerTypeSol.getSelectedItem();
-        			
-    				if (typeEau_enum == "Douce")type=TypeEau.Douce;
-    				else if (typeEau_enum == "Salee")type=TypeEau.Salee;
-    				
-    				try{
-    					enclos = new Aquarium(Integer.parseInt(entrerID.getText()),Double.parseDouble(entrerLng.getText()),Double.parseDouble(entrerLrg.getText()),Integer.parseInt(entrerMax.getText()) ,Double.parseDouble(entrerChamp2.getText()),type);
-        				}
-        				catch(Exception excep ){
-        					JOptionPane.showMessageDialog(null,"Format incorrect");
-        				}
-        			}
-    			else if (selectionne.equals("Insectarium")){
-    				try{
-    					enclos = new Insectarium(Integer.parseInt(entrerID.getText()),Double.parseDouble(entrerLng.getText()),Double.parseDouble(entrerLrg.getText()),Integer.parseInt(entrerMax.getText()));
-        				}
-        				catch(Exception excep ){
-        					JOptionPane.showMessageDialog(null,"Format incorrect");
-        				}
-       			}	
+    			String selectionne = (String) comboBox.getSelectedItem(); //le type d'enclos à créer
+				String typeSol_enum = (String) entrerTypeSol.getSelectedItem();
+				TypeSol type =  TypeSol.valueOf(typeSol_enum);
+				enclosCreator =getChainOfEnclosCreators();
+				enclos = enclosCreator.traiterCreation(selectionne,Integer.parseInt(entrerID.getText()),Double.parseDouble(entrerLng.getText()),Double.parseDouble(entrerLrg.getText()),Integer.parseInt(entrerMax.getText()), 22.5, type );
     			try{
     	
         			zoo.ajouterEnclos(enclos);
