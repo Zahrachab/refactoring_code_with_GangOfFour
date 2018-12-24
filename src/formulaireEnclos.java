@@ -134,11 +134,30 @@ public class formulaireEnclos extends JFrame {
 		class Ajout implements ActionListener{
     		public void actionPerformed(ActionEvent e) {
     			Enclos enclos= null;
-    			String selectionne = (String) comboBox.getSelectedItem(); //le type d'enclos à créer
-				String typeSol_enum = (String) entrerTypeSol.getSelectedItem();
-				TypeSol type =  TypeSol.valueOf(typeSol_enum);
+    			double surf=0;
 				enclosCreator =getChainOfEnclosCreators();
-				enclos = enclosCreator.traiterCreation(selectionne,Integer.parseInt(entrerID.getText()),Double.parseDouble(entrerLng.getText()),Double.parseDouble(entrerLrg.getText()),Integer.parseInt(entrerMax.getText()), 22.5, type );
+				String typeSol_enum;
+				Object type=null;
+    			String selectionne = (String) comboBox.getSelectedItem(); //le type d'enclos à créer
+				if(entrerTypeEau !=null) {
+					typeSol_enum = (String) entrerTypeEau.getSelectedItem();
+					type =  TypeEau.valueOf(typeSol_enum);
+				}
+				else if(entrerTypeSol!=null)
+				{
+					typeSol_enum= (String) entrerTypeSol.getSelectedItem();
+					type =  TypeSol.valueOf(typeSol_enum);
+				}
+				if(entrerChamp1!=null)
+				{
+					surf=Double.parseDouble(entrerChamp1.getText());
+				}
+				else if(entrerChamp2!=null)
+				{
+					surf=Double.parseDouble(entrerChamp2.getText());
+				}
+
+				enclos = enclosCreator.traiterCreation(selectionne,Integer.parseInt(entrerID.getText()),Double.parseDouble(entrerLng.getText()),Double.parseDouble(entrerLrg.getText()),Integer.parseInt(entrerMax.getText()), surf,type );
     			try{
     	
         			zoo.ajouterEnclos(enclos);

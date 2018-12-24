@@ -20,14 +20,14 @@ public class Gestion extends JFrame {
 	private Zoo zoo;
 	
 	private JPanel contentPane;
-	private JLabel fonctions = new JLabel("Fonctionnalités de gestion du zoo");
+	private JLabel fonctions = new JLabel("Fonctionnalitï¿½s de gestion du zoo");
 	private JButton ajoutEnclos = new JButton("Ajouter un Enclos");
 	private JButton supprEnclos= new JButton("Supprimer un Enclos");
 	private JButton ajoutResto= new JButton("Ajouter un Restaurant");
 	private JButton supprResto= new JButton("Supprimer un Restaurant");
 	private JButton affectAnimal= new JButton("Affecter un Animal");
 	private JButton ajoutAnimal= new JButton("Ajouter un Animal");
-	private JButton deplAnimal= new JButton("Déplacer un Animal");
+	private JButton deplAnimal= new JButton("Dï¿½placer un Animal");
 	private JButton supprAnimal = new JButton("Supprimer un Animal");
 	private JButton sauvgarder= new JButton("Sauvegarder");
 	private JButton charger= new JButton("Charger");
@@ -75,7 +75,7 @@ public class Gestion extends JFrame {
 		droite.add(fonctions);
 		class formEnc implements ActionListener{
 			public void actionPerformed(ActionEvent arg0) {
-				FormEnclos formE = new FormEnclos(zoo);
+				formulaireEnclos formE = new formulaireEnclos(zoo);
 				contentPane.repaint();
 			}
 		}
@@ -107,7 +107,7 @@ public class Gestion extends JFrame {
 		JPanel centre = new JPanel();
 		centre.setLayout(new BorderLayout());
 		
-		JButton button = new JButton("Générer Plan");
+		JButton button = new JButton("Gï¿½nï¿½rer Plan");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				PlanZoo plan = new PlanZoo(nbMax);
