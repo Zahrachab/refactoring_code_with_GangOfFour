@@ -47,24 +47,7 @@ public class FormZoo extends JFrame implements ActionListener{
 	public static TreeSet<Enclos> enclos = new TreeSet<Enclos>();
 	
 	public static void main(String[] args) {
-		Aquarium a = new Aquarium(3,5,6,100, 15, TypeEau.Salee);
-		Cage c2 = new Cage(6,5,58,5,TypeSol.Argile);
-		Insectarium i = new Insectarium(4,2,5,6);
-		Cage c = new Cage(1,12,25,2,TypeSol.Argile);
-		Voliere v = new Voliere(2, 3, 1, 8,5);
-		try{
-		v.ajouterAnimal(new Animal(new Oiseau("autruche.esp")));
-		c2.ajouterAnimal(new Animal(new Mammifere("lion.esp")));
-		a.ajouterAnimal(new Animal(new Poisson("poisson_mandarin.esp")));
-		c.ajouterAnimal(new Animal(new Mammifere("lion.esp")));
-		i.ajouterAnimal(new Animal(new Insecte("abeille.esp")));
-		i.ajouterAnimal(new Animal(new Insecte("fourmi.esp")));
-		}
-		catch (NonCompatible e1){
-			JOptionPane.showMessageDialog(null,e1.getMessage());
-		}
-		
-		enclos.add(c); enclos.add(v);  enclos.add(c2); enclos.add(a);  enclos.add(i); 
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

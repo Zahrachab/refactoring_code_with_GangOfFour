@@ -37,19 +37,7 @@ public class PlanZoo extends JFrame {
 	public static void main(String[] args) {
 		
 		Modif p = new Modif(40);
-		
-		
-		Paludarium palu = new Paludarium(1,5,8,9, TypeSol.Argile, 5);
-		Voliere v = new Voliere(2, 3, 1, 8,5);
-	
-		Aquarium a = new Aquarium(3,5,6,100, 15, TypeEau.Salee);
-		Cage c2 = new Cage(6,5,58,5, null);
-		
-		Insectarium i = new Insectarium(4,2,5,6);
-		Cage c = new Cage(1,12,25,2, null);
-	
-		FormZoo.enclos.add(c); FormZoo.enclos.add(v);  FormZoo.enclos.add(c2); 
-		FormZoo.enclos.add(a);  FormZoo.enclos.add(i); FormZoo.enclos.add(palu);
+
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

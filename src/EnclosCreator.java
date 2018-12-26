@@ -18,12 +18,12 @@ public abstract class EnclosCreator {
         if(b){
             enclos = CreerEnclos(id,lng , larg, max, surface,type);
             System.out.println(typeEnclos);
-            return enclos;
+            accessDataImpl.SaveEnclos(enclos);
         }
         else {
             enclos = nextCreator.traiterCreationFormulaire(typeEnclos, id,lng , larg, max, surface,type);
         }
-        accessDataImpl.SaveEnclos(enclos);
+
         return enclos;
     }
     //Les méthodes variantes appellées dans la template méthode

@@ -182,12 +182,12 @@ public class formulaireEnclos extends JFrame {
         
         if (selected.equals("Voliere") || selected.equals("Insectarium")) {
         	
-        	if(entrerChamp1!=null)panel.remove(entrerChamp1);
+        	if(entrerChamp1!=null) panel.remove(entrerChamp1);
         	if(labelChamp1!=null)panel.remove(labelChamp1);
-        	if(entrerChamp2!=null)panel.remove(entrerChamp2);
+        	if(entrerChamp2!=null) {panel.remove(entrerChamp2); entrerChamp2=null;}
         	if(labelChamp2!=null)panel.remove(labelChamp2);
-        	if (entrerTypeEau !=null) panel.remove(entrerTypeEau);
-        	if (entrerTypeSol !=null) panel.remove(entrerTypeSol);
+        	if (entrerTypeEau !=null) {panel.remove(entrerTypeEau); entrerTypeEau=null;}
+        	if (entrerTypeSol !=null) {panel.remove(entrerTypeSol); entrerTypeSol=null;}
         	entrerChamp1 = new JTextField();
     		entrerChamp1.setColumns(10);
     		entrerChamp1.setBounds(155, 258, 116, 22);
@@ -199,13 +199,13 @@ public class formulaireEnclos extends JFrame {
     		
     		panel.repaint();
         } else if (selected.equals("Cage")) {
-        	if(entrerChamp1!=null)panel.remove(entrerChamp1);
-        	if(labelChamp1!=null)panel.remove(labelChamp1);
-        	if(entrerChamp2!=null)panel.remove(entrerChamp2);
+        	if(entrerChamp1!=null) panel.remove(entrerChamp1);
+        	if(labelChamp1!=null) panel.remove(labelChamp1);
+        	if(entrerChamp2!=null) {panel.remove(entrerChamp2); entrerChamp2=null;}
         	if(labelChamp2!=null)panel.remove(labelChamp2);
-        	if (entrerTypeEau !=null) panel.remove(entrerTypeEau);
+        	if (entrerTypeEau !=null){panel.remove(entrerTypeEau); entrerTypeEau=null;}
         	if (entrerTypeSol !=null) panel.remove(entrerTypeSol);
-        	
+
         	entrerTypeSol = new JComboBox(new String[] {"Argile","Sable","Roches","Plantes","Glaces"});
         	entrerTypeSol.setSelectedIndex(-1);
         	entrerTypeSol.setBounds(155, 258, 116, 22);
@@ -222,7 +222,7 @@ public class formulaireEnclos extends JFrame {
         	if(entrerChamp2!=null)panel.remove(entrerChamp2);
         	if(labelChamp2!=null)panel.remove(labelChamp2);
         	if (entrerTypeEau !=null) panel.remove(entrerTypeEau);
-        	if (entrerTypeSol !=null) panel.remove(entrerTypeSol);
+        	if (entrerTypeSol !=null) {panel.remove(entrerTypeSol); entrerTypeSol=null;}
         	
         	entrerTypeEau = new JComboBox(new String[] {"Douce","Salee"});
         	entrerTypeEau.setSelectedIndex(-1);
@@ -247,7 +247,7 @@ public class formulaireEnclos extends JFrame {
         	if(labelChamp1!=null)panel.remove(labelChamp1);
         	if(entrerChamp2!=null)panel.remove(entrerChamp2);
         	if(labelChamp2!=null)panel.remove(labelChamp2);
-        	if (entrerTypeEau !=null) panel.remove(entrerTypeEau);
+        	if (entrerTypeEau !=null) {panel.remove(entrerTypeEau);entrerTypeEau=null;}
         	if (entrerTypeSol !=null) panel.remove(entrerTypeSol);
         	
         	entrerTypeSol = new JComboBox(new String[] {"Argile","Sable","Roches","Plantes","Glaces"});
