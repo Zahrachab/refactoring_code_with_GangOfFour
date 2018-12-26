@@ -1,6 +1,20 @@
 
 public class InsectariumCreator extends EnclosCreator{
 
+
+    //implémenter le patron Singleton
+    private static  InsectariumCreator instance;
+
+    private InsectariumCreator() {}
+
+    public static InsectariumCreator getInstance() {
+        if (instance == null) {
+            instance = new InsectariumCreator();
+        }
+        return instance;
+    }
+
+
     @Override
     public boolean VerifierType(String typeEnclos) {
         if(typeEnclos=="Insectarium")

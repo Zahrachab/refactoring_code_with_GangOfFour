@@ -1,4 +1,18 @@
 public class VoliereCreator extends EnclosCreator{
+
+
+    //implémenter le patron Singleton
+    private static  VoliereCreator instance;
+
+    private VoliereCreator() {}
+
+    public static VoliereCreator getInstance() {
+        if (instance == null) {
+            instance = new VoliereCreator();
+        }
+        return instance;
+    }
+
     @Override
     public boolean VerifierType(String typeEnclos) {
         if(typeEnclos=="Voliere")

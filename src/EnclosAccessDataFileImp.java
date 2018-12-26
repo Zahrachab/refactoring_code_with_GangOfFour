@@ -12,32 +12,31 @@ import java.util.StringTokenizer;
 public class EnclosAccessDataFileImp implements EnclosAccessDataImp {
 
 
-	public void SaveEnclos(Enclos enclos) throws FileNotFoundException, IOException {
+	public void SaveEnclos(Enclos enclos) {
 
 		String msg=enclos.getId()+":"+enclos.getlongueur()+":"+enclos.getlargeur()+":"+enclos.getMax()+":"+enclos.getType()+"/";
 		
 		// create a new output file output.txt
 		String outfilename = "C:\\Users\\sylia\\Desktop\\2CS\\PDC\\cours\\enclos.txt"; 
 		File file =new File(outfilename);
+		try{
 		file.createNewFile();
 		// create a buffer writer tokDataB
 		FileWriter tokData = new FileWriter(outfilename,true);
 		BufferedWriter tokDataB = new BufferedWriter(tokData);
 
-		try{	
-		        StringTokenizer tokens = new StringTokenizer(msg,"/");
-		        while (tokens.hasMoreTokens() ) {
-		            msg = tokens.nextToken();
-		         
-		            String msgLower = msg.toLowerCase();
-		 
-		            // write one token per line to output file
-		            tokDataB.write(msgLower);
-		            tokDataB.newLine();
-		          
-		        }
-		    // close output writer
-		    tokDataB.close();                    
+		StringTokenizer tokens = new StringTokenizer(msg,"/");
+		while (tokens.hasMoreTokens() ) {
+			msg = tokens.nextToken();
+
+			String msgLower = msg.toLowerCase();
+
+			// write one token per line to output file
+			tokDataB.write(msgLower);
+			tokDataB.newLine();
+		}
+		// close output writer
+			tokDataB.close();
 		}
 		catch (Exception e){
 		    System.out.println("Error Exception: "+e.getMessage());
@@ -45,16 +44,17 @@ public class EnclosAccessDataFileImp implements EnclosAccessDataImp {
 		
 	}
 
-	public Enclos GetEnclos(int id) throws FileNotFoundException, IOException {
+	public Enclos GetEnclos(int id) {
 		 String line;
 	     
 	     Enclos e = null;
 	     BufferedReader input = null;
 	   int trv=0;
 	     String filename = "C:\\Users\\sylia\\Desktop\\2CS\\PDC\\cours\\enclos.txt";
+	     try{
 	     input = new BufferedReader(new FileReader(filename));
 	     line = input.readLine(); // when printed gives first line in file
-	   try{
+
 	     // outer while (process lines)
 	     while ((line != null) || (trv==0))
 	     {
@@ -93,8 +93,7 @@ public class EnclosAccessDataFileImp implements EnclosAccessDataImp {
 	}
 
 
-	public ArrayList<Enclos> GetAlEnclos() throws IOException,
-			FileNotFoundException {
+	public ArrayList<Enclos> GetAlEnclos()  {
 		 String line;
 	     
 	      ArrayList<Enclos> list = new ArrayList<Enclos>();
@@ -102,9 +101,9 @@ public class EnclosAccessDataFileImp implements EnclosAccessDataImp {
 	     BufferedReader input = null;
 	   int trv=0;
 	     String filename = "C:\\Users\\sylia\\Desktop\\2CS\\PDC\\cours\\enclos.txt";
+	     try{
 	     input = new BufferedReader(new FileReader(filename));
 	     line = input.readLine(); // when printed gives first line in file
-	   try{
 	     // outer while (process lines)
 	     while ((line != null) || (trv==0))
 	     {

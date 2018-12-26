@@ -1,5 +1,18 @@
 import Enum.*;
 public class AquariumCreator extends EnclosCreator {
+
+
+    //implémenter le patron Singleton
+    private static  AquariumCreator instance;
+
+    private AquariumCreator() {}
+
+    public static AquariumCreator getInstance() {
+        if (instance == null) {
+            instance = new AquariumCreator();
+        }
+        return instance;
+    }
     @Override
     public boolean VerifierType(String typeEnclos) {
         if(typeEnclos=="Aquarium")

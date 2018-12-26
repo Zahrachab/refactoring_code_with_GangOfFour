@@ -1,49 +1,40 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-import Enum.Habitat;
-import Enum.RegimeAlimentaire;
 
 
-public class EspaceAccessDataFileImp implements EspaceAccessDataImp {
-	
-	
+public class EspeceAccessDataFileImp implements EspeceAccessDataImp {
 	
 
-	public void SaveEspece(Espece espece)throws FileNotFoundException, IOException {
+	public void SaveEspece(Espece espece) {
 
 		String msg=espece.getNom()+":"+espece.getContinents()+":"+espece.getHabitat()+":"+espece.getDuree()+":"+espece.getRegime()+"/";
 		
 		// create a new output file output.txt
 		String outfilename = "C:\\Users\\sylia\\Desktop\\2CS\\PDC\\cours\\espece.txt"; 
 		File file =new File(outfilename);
+		try{
 		file.createNewFile();
 		// create a buffer writer tokDataB
 		FileWriter tokData = new FileWriter(outfilename,true);
 		BufferedWriter tokDataB = new BufferedWriter(tokData);
-
-		try{	
-		        StringTokenizer tokens = new StringTokenizer(msg,"/");
-		        while (tokens.hasMoreTokens() ) {
-		            msg = tokens.nextToken();
+		StringTokenizer tokens = new StringTokenizer(msg,"/");
+		while (tokens.hasMoreTokens() ) {
+			msg = tokens.nextToken();
 		         
-		            String msgLower = msg.toLowerCase();
+			String msgLower = msg.toLowerCase();
 		 
-		            // write one token per line to output file
-		            tokDataB.write(msgLower);
-		            tokDataB.newLine();
+			// write one token per line to output file
+			tokDataB.write(msgLower);
+			tokDataB.newLine();
 		          
-		        }
-		    // close output writer
-		    tokDataB.close();                    
+		}
+		// close output writer
+			tokDataB.close();
 		}
 		catch (Exception e){
 		    System.out.println("Error Exception: "+e.getMessage());
@@ -53,41 +44,38 @@ public class EspaceAccessDataFileImp implements EspaceAccessDataImp {
 	
 	
 	
-	public Espece GetEspece(String nom) throws IOException, FileNotFoundException {
+	public Espece GetEspece(String nom) {
 		  String line;
 		     
 		     Espece e = null;
 		     BufferedReader input = null;
 		   int trv=0;
 		     String filename = "C:\\Users\\sylia\\Desktop\\2CS\\PDC\\cours\\espece.txt";
-		     input = new BufferedReader(new FileReader(filename));
+		     try {
 		     line = input.readLine(); // when printed gives first line in file
-		   try{
 		     // outer while (process lines)
 		     while ((line != null) || (trv==0))
 		     {
-		    	 
-		    	
-					StringTokenizer tok = new StringTokenizer(line,":");
-					int nb = tok.countTokens();
-					for( int i=1; i<=nb;i++)
-					{
-						String champ = tok.nextToken();
-						if(i==1){ if( champ.equals(nom)){ trv=1;
-						switch(i){
+		     	StringTokenizer tok = new StringTokenizer(line,":");
+		     	int nb = tok.countTokens();
+		     	for( int i=1; i<=nb;i++)
+		     	{
+		     		String champ = tok.nextToken();
+		     		if(i==1){ if( champ.equals(nom)){ trv=1;
+		     		switch(i){
 						case 1: e.setNom(champ);  break;
 						case 2: e.setContinents(champ); break;
 						case 3: e.setHabitat(e.Habitat(champ)); break;
 						case 4: e.setDuree(Integer.parseInt(champ)); break;
 						case 5: e.setRegime( e.MakeRegime(champ)); break;
 						
-						}
-						}
-						}
-						  System.out.println("Input Line: \t" + champ);
+		     			}
+		     		}
+		     		}
+		     		System.out.println("Input Line: \t" + champ);
 						
-					}
-		    	 return e;
+		     	}
+		     	return e;
 		     }
 		     input.close();
 			return e;}
@@ -101,17 +89,16 @@ public class EspaceAccessDataFileImp implements EspaceAccessDataImp {
 	}
 
 
-	public ArrayList<Espece> GetAlEspeces() throws IOException, FileNotFoundException {
+	public ArrayList<Espece> GetAlEspeces()  {
 		  String line;
-		     
-		      ArrayList<Espece> list = new ArrayList<Espece>();
-		      Espece e=null;
-		     BufferedReader input = null;
-		   int trv=0;
-		     String filename = "C:\\Users\\sylia\\Desktop\\2CS\\PDC\\cours\\input.txt";
-		     input = new BufferedReader(new FileReader(filename));
-		     line = input.readLine(); // when printed gives first line in file
-		   try{
+		  ArrayList<Espece> list = new ArrayList<Espece>();
+		  Espece e=null;
+		  BufferedReader input = null;
+		  int trv=0;
+		  String filename = "C:\\Users\\sylia\\Desktop\\2CS\\PDC\\cours\\input.txt";
+		  try{
+		  	input = new BufferedReader(new FileReader(filename));
+		  	line = input.readLine(); // when printed gives first line in file
 		     // outer while (process lines)
 		     while ((line != null) || (trv==0))
 		     {

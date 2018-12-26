@@ -2,6 +2,20 @@
 import Enum.*;
 public class PaludariumCreator extends EnclosCreator{
 
+
+
+    //implémenter le patron Singleton
+    private static  PaludariumCreator instance;
+
+    private PaludariumCreator() {}
+
+    public static PaludariumCreator getInstance() {
+        if (instance == null) {
+            instance = new PaludariumCreator();
+        }
+        return instance;
+    }
+
     @Override
     public boolean VerifierType(String typeEnclos) {
         if(typeEnclos=="Paludarium")
