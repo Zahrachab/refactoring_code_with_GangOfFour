@@ -18,6 +18,19 @@ public class Insectarium extends Enclos {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public String getNom()
+	{
+		return "Insectarium";
+	}
+
+
+	@Override
+	public String getChamps()
+	{
+		return getNom()+":"+ getId()+":"+ getlongueur()+":"+ getlargeur()+":"+ getMax()+"/";
+	}
+
 	public boolean marche(Animal a) {
 		boolean resultat=false;
 		if (a.getEspece() instanceof Invertebre && a.getEspece().getHabitat() != Habitat.eau) resultat = true;

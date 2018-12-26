@@ -44,6 +44,22 @@ public class Voliere extends Enclos {
 		return null;
 	}
 
+	@Override
+	public String getNom()
+	{
+		return "Voliere";
+	}
+
+	public double getHauteur()
+	{
+		return this.hauteur;
+	}
+
+	@Override
+	public String getChamps()
+	{
+		return getNom()+":"+ getId()+":"+ getlongueur()+":"+ getlargeur()+":"+ getMax()+":"+getHauteur()+"/";
+	}
 
 	@Override
 	public void setType(Object O) {

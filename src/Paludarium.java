@@ -40,6 +40,24 @@ public class Paludarium extends Enclos {
 		return (TypeSol) this.typeSol;
 	}
 
+	public String getNom()
+	{
+		return "Paludarium";
+	}
+
+
+
+	public double getSurface()
+	{
+		return this.surface_eau;
+	}
+
+
+	@Override
+	public String getChamps()
+	{
+		return getNom()+":"+ getId()+":"+ getlongueur()+":"+ getlargeur()+":"+ getMax()+":"+getSurface()+":"+ getType().toString()+"/";
+	}
 
 	public void setType(Object O) {
 	this.typeSol= (TypeSol) O;

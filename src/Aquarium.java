@@ -45,6 +45,23 @@ public class Aquarium extends Enclos {
 	this.typeEau= (TypeEau)O;
 		
 	}
+
+	public String getNom()
+	{
+		return "Aquarium";
+	}
+
+	public double getContenance()
+	{
+		return this.contenance;
+	}
+
+
+	@Override
+	public String getChamps()
+	{
+		return getNom()+":"+ getId()+":"+ getlongueur()+":"+ getlargeur()+":"+ getMax()+":"+ getContenance()+":"+ getType().toString()+"/";
+	}
 	
 
 }

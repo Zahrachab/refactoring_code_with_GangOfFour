@@ -14,7 +14,7 @@ public class EnclosAccessDataFileImp implements EnclosAccessDataImp {
 
 	public void SaveEnclos(Enclos enclos) {
 
-		String msg=enclos.getId()+":"+enclos.getlongueur()+":"+enclos.getlargeur()+":"+enclos.getMax()+":"+enclos.getType()+"/";
+		String msg=enclos.getChamps();
 		
 		// create a new output file output.txt
 		String outfilename = "D:\\enclos.txt";

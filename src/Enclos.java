@@ -54,6 +54,9 @@ public abstract class Enclos implements Comparable{
 		return res;
 	}
 	
+    public abstract String getNom();
+
+	public abstract String getChamps();
 
 	public int compareTo(Object ob) {
 		
