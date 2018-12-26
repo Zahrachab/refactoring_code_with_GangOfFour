@@ -1,7 +1,6 @@
 public abstract class EnclosCreator {
 
-    public abstract <T> Enclos CreerEnclos(int id, double lng , double larg, int max, double surface, T type);
-    public abstract boolean VerifierType(String typeEnclos);
+    static protected EnclosAccessDataImp accessDataImpl;
 
     protected EnclosCreator nextCreator;
 
@@ -9,16 +8,37 @@ public abstract class EnclosCreator {
         this.nextCreator = nextCreator;
     }
 
-    public <T> Enclos traiterCreation(String typeEnclos ,int id, double lng , double larg, int max, double surface, T type ){  //templateMethode
+
+    //template methode traiterCreation qui déffénit les étapes de création d'un objet de type Enclos à partir des données en entrée
+    public <T> Enclos traiterCreationFormulaire(String typeEnclos ,int id, double lng , double larg, int max, double surface, T type ){  //templateMethode
         Enclos enclos=null;
-        if(VerifierType(typeEnclos)){
+        boolean b = VerifierType(typeEnclos);
+        if(b){
             enclos = CreerEnclos(id,lng , larg, max, surface,type);
             System.out.println(typeEnclos);
             return enclos;
         }
-        else if(nextCreator!=null){
-            enclos = nextCreator.traiterCreation(typeEnclos, id,lng , larg, max, surface,type);
+        else {
+            enclos = nextCreator.traiterCreationFormulaire(typeEnclos, id,lng , larg, max, surface,type);
         }
+        accessDataImpl.SaveEnclos(enclos);
         return enclos;
     }
+    //Les méthodes variantes appellées dans la template méthode
+
+    //factoryMethode
+    public abstract <T> Enclos CreerEnclos(int id, double lng , double larg, int max, double surface, T type);
+    public abstract boolean VerifierType(String typeEnclos);
+
+    public static void setAccessData(EnclosAccessDataImp impl)
+    {
+        accessDataImpl= impl;
+    }
 }
+
+
+    //template methode 2 qui déffinit les processus de  la création des enclos à partir des données d'un fichier
+
+
+
+

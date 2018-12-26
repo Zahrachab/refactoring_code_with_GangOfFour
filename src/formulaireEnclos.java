@@ -44,23 +44,26 @@ public class formulaireEnclos extends JFrame {
 
 	private static EnclosCreator getChainOfEnclosCreators(){
 
-		EnclosCreator paludariumCreator = new PaludariumCreator();
-		EnclosCreator cageCreator = new CageCreator();
-		EnclosCreator insectariumCreator = new InsectariumCreator();
-		EnclosCreator aquariumCreator = new AquariumCreator();
-		EnclosCreator voilereCreator = new VoliereCreator();
+		EnclosCreator paludariumCreator = PaludariumCreator.getInstance();
+		EnclosCreator cageCreator = CageCreator.getInstance();
+		EnclosCreator insectariumCreator =InsectariumCreator.getInstance();
+		EnclosCreator aquariumCreator = AquariumCreator.getInstance();
+		EnclosCreator voliereCreator = VoliereCreator.getInstance();
+		EnclosAccessDataImp enclosdataAccessImpl= new EnclosAccessDataFileImp();
+		EnclosCreator.setAccessData(enclosdataAccessImpl);
 
 
 		paludariumCreator.setNextCreator(cageCreator);
 		cageCreator.setNextCreator(insectariumCreator);
 		insectariumCreator.setNextCreator(aquariumCreator);
-		aquariumCreator.setNextCreator(voilereCreator);
+		aquariumCreator.setNextCreator(voliereCreator);
+		voliereCreator.setNextCreator(paludariumCreator);
 
 		return paludariumCreator;
 	}
 
 	public formulaireEnclos(Zoo zoo) {
-
+		enclosCreator =getChainOfEnclosCreators();
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 616, 567);
@@ -135,7 +138,6 @@ public class formulaireEnclos extends JFrame {
     		public void actionPerformed(ActionEvent e) {
     			Enclos enclos= null;
     			double surf=0;
-				enclosCreator =getChainOfEnclosCreators();
 				String typeSol_enum;
 				Object type=null;
     			String selectionne = (String) comboBox.getSelectedItem(); //le type d'enclos à créer
@@ -157,7 +159,7 @@ public class formulaireEnclos extends JFrame {
 					surf=Double.parseDouble(entrerChamp2.getText());
 				}
 
-				enclos = enclosCreator.traiterCreation(selectionne,Integer.parseInt(entrerID.getText()),Double.parseDouble(entrerLng.getText()),Double.parseDouble(entrerLrg.getText()),Integer.parseInt(entrerMax.getText()), surf,type );
+				enclos = enclosCreator.traiterCreationFormulaire(selectionne,Integer.parseInt(entrerID.getText()),Double.parseDouble(entrerLng.getText()),Double.parseDouble(entrerLrg.getText()),Integer.parseInt(entrerMax.getText()), surf,type );
     			try{
     	
         			zoo.ajouterEnclos(enclos);

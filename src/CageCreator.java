@@ -1,6 +1,20 @@
 import Enum.*;
 public class CageCreator extends EnclosCreator{
 
+
+
+    //implémenter le patron Singleton
+    private static  CageCreator instance;
+
+    private CageCreator() {}
+
+    public static CageCreator getInstance() {
+        if (instance == null) {
+            instance = new CageCreator();
+        }
+        return instance;
+    }
+
     @Override
     public boolean VerifierType(String typeEnclos) {
         if(typeEnclos=="Cage")
