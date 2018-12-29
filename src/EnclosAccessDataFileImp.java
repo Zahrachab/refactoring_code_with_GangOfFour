@@ -27,9 +27,8 @@ public class EnclosAccessDataFileImp implements EnclosAccessDataImp {
 
 		StringTokenizer tokens = new StringTokenizer(msg,"/");
 		while (tokens.hasMoreTokens() ) {
-			msg = tokens.nextToken();
+			String msgLower = tokens.nextToken();
 
-			String msgLower = msg.toLowerCase();
 
 			// write one token per line to output file
 			tokDataB.write(msgLower);
@@ -93,22 +92,19 @@ public class EnclosAccessDataFileImp implements EnclosAccessDataImp {
 	}
 
 
-	public ArrayList<Enclos> GetAlEnclos()  {
+	public ArrayList<ArrayList<Object>> GetAlEnclos()  {
 		 String line;
-	     
-	      ArrayList<Enclos> list = new ArrayList<Enclos>();
-	      Enclos e=null;
+		 ArrayList<ArrayList<Object>> list = new ArrayList<ArrayList<Object>>();
 	     BufferedReader input = null;
 	   int trv=0;
-	     String filename = "C:\\Users\\sylia\\Desktop\\2CS\\PDC\\cours\\enclos.txt";
+	     String filename = "D:\\enclos.txt";
 	     try{
 	     input = new BufferedReader(new FileReader(filename));
-	     line = input.readLine(); // when printed gives first line in file
 	     // outer while (process lines)
-	     while ((line != null) || (trv==0))
+
+	     while ((line = input.readLine()) != null)
 	     {
-	    	 
-	    	
+			    ArrayList<Object> lineEnclos= new ArrayList<Object>()	;
 				StringTokenizer tok = new StringTokenizer(line,":");
 				int nb = tok.countTokens();
 				for( int i=1; i<=nb;i++)
@@ -116,18 +112,19 @@ public class EnclosAccessDataFileImp implements EnclosAccessDataImp {
 					String champ = tok.nextToken();
 					
 					switch(i){
-					case 1: e.setId(Integer.parseInt(champ));  break;
-					case 2: e.setlong(Double.parseDouble(champ));; break;
-					case 3: e.setlarg(Double.parseDouble(champ));; break;
-					case 4: e.setMax(Integer.parseInt(champ)); break;
-					case 5: e.setType(champ);; break;
+						case 1: lineEnclos.add(champ);break;  //le type d'enclos
+						case 2: lineEnclos.add((Integer.parseInt(champ)));  break; //id
+						case 3: lineEnclos.add(Double.parseDouble(champ)); break; //laongueur
+						case 4: lineEnclos.add(Double.parseDouble(champ));  break; //largeur
+						case 5: lineEnclos.add(Integer.parseInt(champ)); break;  //max
+						case 6: lineEnclos.add(Double.parseDouble(champ));break; //champs après max (surface ou contenance)
+						case 7: lineEnclos.add(champ); break;  //le type de sol au de l'eau
 					
 					}
-					
-					  System.out.println("Input Line: \t" + champ);
+
 					
 				}
-	    	 list.add(e);
+	    	 list.add(lineEnclos);
 	     }
 	     input.close();
 		return list;}

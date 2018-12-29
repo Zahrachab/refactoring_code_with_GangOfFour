@@ -62,7 +62,7 @@ public class Cage extends Enclos {
 	@Override
 	public String getChamps()
 	{
-		return getNom()+":"+ getId()+":"+ getlongueur()+":"+ getlargeur()+":"+ getMax()+":"+ getType().toString()+"/";
+		return getNom()+":"+ getId()+":"+ getlongueur()+":"+ getlargeur()+":"+ getMax()+":0.0:"+ getType().toString()+"/";
 	}
 	
 

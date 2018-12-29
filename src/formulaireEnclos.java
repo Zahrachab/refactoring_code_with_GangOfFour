@@ -138,17 +138,14 @@ public class formulaireEnclos extends JFrame {
     		public void actionPerformed(ActionEvent e) {
     			Enclos enclos= null;
     			double surf=0;
-				String typeSol_enum;
-				Object type=null;
+				String type= "";
     			String selectionne = (String) comboBox.getSelectedItem(); //le type d'enclos à créer
 				if(entrerTypeEau !=null) {
-					typeSol_enum = (String) entrerTypeEau.getSelectedItem();
-					type =  TypeEau.valueOf(typeSol_enum);
+					type= (String) entrerTypeEau.getSelectedItem();
 				}
 				else if(entrerTypeSol!=null)
 				{
-					typeSol_enum= (String) entrerTypeSol.getSelectedItem();
-					type =  TypeSol.valueOf(typeSol_enum);
+					type= (String) entrerTypeSol.getSelectedItem();
 				}
 				if(entrerChamp1!=null)
 				{

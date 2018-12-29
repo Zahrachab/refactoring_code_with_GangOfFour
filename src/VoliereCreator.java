@@ -17,13 +17,13 @@ public class VoliereCreator extends EnclosCreator{
 
     @Override
     public boolean VerifierType(String typeEnclos) {
-        if(typeEnclos=="Voliere")
+        if(typeEnclos.equals("Voliere"))
         return true;
         else return false;
     }
 
     @Override
-    public <T> Enclos CreerEnclos(int id, double lng , double larg, int max, double surface, T type) {
+    public  Enclos CreerEnclos(int id, double lng , double larg, int max, double surface, String type) {
         Voliere voliere = new Voliere(id,lng,larg,max,surface);
         return voliere;
     }

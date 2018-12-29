@@ -18,14 +18,14 @@ public class PaludariumCreator extends EnclosCreator{
 
     @Override
     public boolean VerifierType(String typeEnclos) {
-        if(typeEnclos=="Paludarium")
+        if(typeEnclos.equals("Paludarium"))
             return true;
         else return false;
     }
 
     @Override
-    public <T> Enclos CreerEnclos(int id, double lng , double larg, int max, double surface, T type) {
-        Paludarium  paludarium = new Paludarium(id,lng,larg,max,(TypeSol)type, surface);
+    public Enclos CreerEnclos(int id, double lng , double larg, int max, double surface, String type) {
+        Paludarium  paludarium = new Paludarium(id,lng,larg,max,TypeSol.valueOf(type), surface);
         return paludarium;
     }
 }

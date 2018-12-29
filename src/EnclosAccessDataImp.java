@@ -7,6 +7,6 @@ public interface EnclosAccessDataImp {
 	
 	public void SaveEnclos(Enclos enclos) ;
 	public Enclos GetEnclos (int id) ;
-	public ArrayList<Enclos> GetAlEnclos() ;
+	public ArrayList<ArrayList<Object>> GetAlEnclos() ;
 
 }

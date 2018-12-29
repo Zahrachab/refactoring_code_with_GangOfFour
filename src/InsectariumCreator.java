@@ -17,13 +17,13 @@ public class InsectariumCreator extends EnclosCreator{
 
     @Override
     public boolean VerifierType(String typeEnclos) {
-        if(typeEnclos=="Insectarium")
+        if(typeEnclos.equals("Insectarium"))
             return true;
         else return false;
     }
 
     @Override
-    public <T> Enclos CreerEnclos(int id, double lng , double larg, int max, double surface, T type) {
+    public  Enclos CreerEnclos(int id, double lng , double larg, int max, double surface, String type) {
         Insectarium insectarium = new Insectarium(id,lng,larg,max);
         return insectarium;
     }

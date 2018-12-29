@@ -58,7 +58,8 @@ public class Voliere extends Enclos {
 	@Override
 	public String getChamps()
 	{
-		return getNom()+":"+ getId()+":"+ getlongueur()+":"+ getlargeur()+":"+ getMax()+":"+getHauteur()+"/";
+
+		return getNom()+":"+ getId()+":"+ getlongueur()+":"+ getlargeur()+":"+ getMax()+":"+getHauteur()+":null/";
 	}
 
 	@Override

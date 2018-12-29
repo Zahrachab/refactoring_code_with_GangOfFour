@@ -23,7 +23,6 @@ public  class Zoo implements Serializable{
 		this.surface = surface;
 		this.ville = ville; 
 		this.portes = portes;
-		enclos =
 	}
 	
 	public String getNom(){return this.nom;} public String getVille(){return this.ville;} public String getDate(){return this.dateOuverture;}
