@@ -12,8 +12,8 @@ import Enum.RegimeAlimentaire;
 public class Reptile extends Vertebre {
 	
 	public Reptile(String nom, String continents, int dureeVie,
-			RegimeAlimentaire regime, Habitat habitat, Photo photo) {
-		super(nom, continents, dureeVie, regime, habitat, photo);
+			RegimeAlimentaire regime, Habitat habitat, String photo, boolean dangereux) {
+		super(nom, continents, dureeVie, regime, habitat, photo); this.dangereux= dangereux;
 		// TODO Auto-generated constructor stub
 	}
 	

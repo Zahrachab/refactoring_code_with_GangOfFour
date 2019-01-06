@@ -12,7 +12,7 @@ import Enum.RegimeAlimentaire;
 public class Amphibien extends Vertebre {
 	
 	public Amphibien(String nom, String continents, int dureeVie,
-			RegimeAlimentaire regime, Habitat habitat, Photo photo,boolean venimeux) {
+			RegimeAlimentaire regime, Habitat habitat, String photo,boolean venimeux) {
 		super(nom, continents, dureeVie, regime, habitat, photo); this.venimeux = venimeux;
 	}
 	

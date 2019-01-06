@@ -11,9 +11,9 @@ import Enum.RegimeAlimentaire;
 
 public class Mammifere extends Vertebre {
 	
-	public Mammifere(String nom, String continents, int dureeVie,
-			RegimeAlimentaire regime, Habitat habitat, Photo photo) {
-		super(nom, continents, dureeVie, regime, habitat, photo);
+	public Mammifere(String nom, String continents,int dureeVie,
+			RegimeAlimentaire regime, Habitat habitat, String photo, int duree_gestation) {
+		super(nom, continents, dureeVie, regime, habitat, photo); this.duree_gestation= duree_gestation;
 		// TODO Auto-generated constructor stub
 	}
 

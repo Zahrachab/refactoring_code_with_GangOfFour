@@ -28,8 +28,8 @@ public class FormAnimal extends JFrame implements ActionListener
 	private JTextField entrerRace = new JTextField();
 	JTextField entrerPoids = new JTextField();
 	private JTextField entrerDate = new JTextField();
-
-	private JComboBox<String> espece = new JComboBox<String>(new String[]{"abeille", "addax","araignee","autruche","crapaud_commun","escargot","fourmi","lion","mouton","poisson_mandarin"});
+	private JTextField entrerNomEspece = new JTextField();
+	private JComboBox<String> espece = new JComboBox<String>(new String[]{"Insecte", "Mammifere", "Arachnide","Oiseau","Poisson","Reptile","Amphibien"});
 	private JComboBox<String> etat_sante = new JComboBox<String>(new String[]{"Gravement malade", "Malade", "Bonne sante"});
 	private Zoo z ; 
 	private Animal nvAnimal = new Animal(); 
@@ -61,29 +61,37 @@ public class FormAnimal extends JFrame implements ActionListener
         
 		espece.setBounds( 400, 70, 150, 20 );
 		contentPane.add( espece );
-		
+
+
+		JLabel LabelNom = new JLabel("Nom de l'éspèce");
+		LabelNom.setBounds(10,120,300,20);
+		contentPane.add(LabelNom);
+
+		entrerNomEspece.setText("");
+		entrerNomEspece.setBounds( 400, 120, 150, 20 );
+		contentPane.add(entrerNomEspece);
 
 		 JLabel LabelRace = new JLabel("Race"); 
-	     LabelRace.setBounds(10,120,300,20); 
+	     LabelRace.setBounds(10,170,300,20);
 	     contentPane.add( LabelRace);
 	     
 	     entrerRace.setText("");
-	     entrerRace.setBounds( 400, 120, 150, 20 );
+	     entrerRace.setBounds( 400, 170, 150, 20 );
 	     contentPane.add(entrerRace);
-	  
+
 	   JLabel LabelDate = new JLabel("Date de naissance"); 
-	   LabelDate.setBounds(10,170,300,20); 
+	   LabelDate.setBounds(10,220,300,20);
 	   contentPane.add(LabelDate);
 	 	
 	   entrerDate.setText("");
-	   entrerDate.setBounds( 400, 170, 150, 20 );
+	   entrerDate.setBounds( 400, 220, 150, 20 );
 	   contentPane.add(entrerDate);
 
        JLabel LabelSante = new JLabel("Etat de sante "); 
-       LabelSante.setBounds(10,218,300,20); 
+       LabelSante.setBounds(10,270,300,20);
        contentPane.add(LabelSante); 
        
-	   etat_sante.setBounds( 400, 220, 150, 20 );
+	   etat_sante.setBounds( 400, 270, 150, 20 );
 	   contentPane.add(etat_sante);
 	    
 	   

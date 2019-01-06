@@ -12,7 +12,7 @@ import Enum.RegimeAlimentaire;
 public class Arachnide extends Invertebre {
 
 	public Arachnide(String nom, String continents, int dureeVie,
-			RegimeAlimentaire regime, Habitat habitat, Photo photo,int nb_pattes) {
+			RegimeAlimentaire regime, Habitat habitat, String photo,int nb_pattes) {
 		super(nom, continents, dureeVie, regime, habitat, photo); this.nb_pattes = nb_pattes;
 	}
 

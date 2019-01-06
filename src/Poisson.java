@@ -13,8 +13,8 @@ import Enum.TypeEau;
 public class Poisson extends Vertebre {
 	
 	public Poisson(String nom, String continents, int dureeVie,
-			RegimeAlimentaire regime, Habitat habitat, Photo photo) {
-		super(nom, continents, dureeVie, regime, habitat, photo);
+			RegimeAlimentaire regime, Habitat habitat, String photo, boolean typeEau) {
+		super(nom, continents, dureeVie, regime, habitat, photo); this.typeEau= typeEau;
 		// TODO Auto-generated constructor stub
 	}
 	public Poisson(String nomfich) {
@@ -61,8 +61,7 @@ public class Poisson extends Vertebre {
 						
 				}
 	}
-	
-	private double longueur;
+
 	private boolean typeEau;
 	
 	public boolean getTypeEau(){return this.typeEau;}

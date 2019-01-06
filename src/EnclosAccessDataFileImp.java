@@ -49,7 +49,7 @@ public class EnclosAccessDataFileImp implements EnclosAccessDataImp {
 	     Enclos e = null;
 	     BufferedReader input = null;
 	   int trv=0;
-	     String filename = "C:\\Users\\sylia\\Desktop\\2CS\\PDC\\cours\\enclos.txt";
+	     String filename = "D:\\enclos.txt";
 	     try{
 	     input = new BufferedReader(new FileReader(filename));
 	     line = input.readLine(); // when printed gives first line in file

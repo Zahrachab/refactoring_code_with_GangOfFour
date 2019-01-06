@@ -13,17 +13,12 @@ public  class Espece {
 	private int dureeVie;
 	private RegimeAlimentaire regime;
 	private Habitat habitat;
-	private Photo photo; 
+	private String photo;
 	private static int nbIndividus;
 	
 	public String getNom(){return this.nom;} public String getContinents(){return this.continents;}
 	public int getDuree(){return this.dureeVie;} public RegimeAlimentaire getRegime(){return this.regime;}
 	public Habitat getHabitat(){return this.habitat;}
-	
-	public static void main(String[] args){
-		Espece a = new Espece("lion.esp");
-	}
-	
 	public Espece(String nomfich){
 		BufferedReader in = null;
 		String ligne;
@@ -79,7 +74,7 @@ public  class Espece {
 	
 
 	
-	public Espece(String nom, String continents, int dureeVie, RegimeAlimentaire regime, Habitat habitat, Photo photo){
+	public Espece(String nom, String continents, int dureeVie, RegimeAlimentaire regime, Habitat habitat, String photo){
 		this.nbIndividus++; this.nom = nom; this.continents = continents ; this.dureeVie = dureeVie ; 
 		this.regime = regime; this.habitat = habitat; this.photo = photo;
 	}
@@ -114,8 +109,8 @@ public  class Espece {
 			case "1" : resultat = resultat + "Europe "; break;
 			case "2" : resultat = resultat + "Antartique "; break;
 			case "3" : resultat = resultat + "Asie "; break;
-			case "4" : resultat = resultat + "Amérique "; break;
-			case "5" : resultat = resultat + "Océanie "; break;
+			case "4" : resultat = resultat + "Amï¿½rique "; break;
+			case "5" : resultat = resultat + "Ocï¿½anie "; break;
 			
 			}
 		}
@@ -153,6 +148,9 @@ public void setNom(String name){
 		return resultat;
 	}
 
+	public String getChamps() {
+			return this.nom+ this.continents+this.dureeVie+ this.regime+ this.habitat+this.photo;
+	}
 }
 
 

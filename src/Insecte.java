@@ -12,8 +12,8 @@ import Enum.RegimeAlimentaire;
 public class Insecte extends Invertebre {
 	
 	public Insecte(String nom, String continents, int dureeVie,
-			RegimeAlimentaire regime, Habitat habitat, Photo photo) {
-		super(nom, continents, dureeVie, regime, habitat, photo);
+			RegimeAlimentaire regime, Habitat habitat, String photo, int nbPattes) {
+		super(nom, continents, dureeVie, regime, habitat, photo); this.nb_pattes= nbPattes;
 		// TODO Auto-generated constructor stub
 	}
 
