@@ -16,7 +16,10 @@ import Exceptions.NonCompatible;
 	private ArrayList<Animal> animaux= new ArrayList<Animal>();
 	private ArrayList<Espece> especes = new ArrayList<Espece>();
 	private EspeceCreator especeCreator;
+<<<<<<< HEAD
 	private static ArrayList<Enclos> enclos = new ArrayList<Enclos>();
+=======
+>>>>>>> 64746c7b7c0312bc71961e9fc5be617da7199b8b
 	private static double surface=5000;
 	private static double sur;
 	
@@ -28,7 +31,32 @@ import Exceptions.NonCompatible;
 		this.ville = ville; 
 		this.portes = portes;
 		getEspeces();
+<<<<<<< HEAD
 		getAllEnclos();
+=======
+	}
+
+
+	private static EspeceCreator getChainOfEspeceCreators(){
+
+		InsecteCreator creator1  = InsecteCreator.getInstance();
+		ArachnideCreator creator2  = ArachnideCreator.getInstance();
+		PoissonCreator creator3  = PoissonCreator.getInstance();
+		OiseauCreator creator4  = OiseauCreator.getInstance();
+		ReptileCreator creator5  = ReptileCreator.getInstance();
+		MammifereCreator creator6 = MammifereCreator.getInstance();
+		MollusqueCreator creator7  = MollusqueCreator.getInstance();
+		EspeceAccessDataImp especeDataAccessImpl= new EspeceAccessDataFileImp();
+		EspeceCreator.setAccessData(especeDataAccessImpl);
+		creator1.setNextCreator(creator2);
+		creator2.setNextCreator(creator3);
+		creator3.setNextCreator(creator4);
+		creator4.setNextCreator(creator5);
+		creator5.setNextCreator(creator6);
+		creator6.setNextCreator(creator7);
+		creator7.setNextCreator(creator1);
+		return creator1;
+>>>>>>> 64746c7b7c0312bc71961e9fc5be617da7199b8b
 	}
 
 
@@ -97,6 +125,7 @@ import Exceptions.NonCompatible;
 		}
 		return cpt;}
 
+<<<<<<< HEAD
 
 
 		public Espece getEspeceByName(String name)
@@ -183,4 +212,17 @@ import Exceptions.NonCompatible;
 			 }
 		 }
 	 }
+=======
+		public void getEspeces()
+		{
+			especeCreator= getChainOfEspeceCreators();
+			Espece espece;
+			ArrayList<ArrayList<Object>> list = especeCreator.getAllSavedEspeces();
+            for (int i=0; i<list.size();i++)
+			{
+				espece = especeCreator.traiterCreation(list.get(i));
+				especes.add(espece);
+			}
+		}
+>>>>>>> 64746c7b7c0312bc71961e9fc5be617da7199b8b
 }

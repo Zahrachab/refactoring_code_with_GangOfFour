@@ -19,6 +19,7 @@ public  class Espece {
 	public String getNom(){return this.nom;} public String getContinents(){return this.continents;}
 	public int getDuree(){return this.dureeVie;} public RegimeAlimentaire getRegime(){return this.regime;}
 	public Habitat getHabitat(){return this.habitat;}
+
 	
 	public Espece(String nom, String continents, int dureeVie, RegimeAlimentaire regime, Habitat habitat, String photo){
 		this.nbIndividus++; this.nom = nom; this.continents = continents ; this.dureeVie = dureeVie ; 
@@ -42,7 +43,7 @@ public  class Espece {
 	public int hashCode(){
 		return this.nom.hashCode() ;
 	}
-	
+
 	public Habitat Habitat(String s){
 		return Habitat.valueOf(s);
 	}

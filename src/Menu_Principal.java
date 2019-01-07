@@ -19,6 +19,7 @@ public class Menu_Principal extends JFrame {
 
 	public static void main(String[] args) {
 
+		FormZoo.getEnclos();
 		
 		
 		EventQueue.invokeLater(new Runnable() {

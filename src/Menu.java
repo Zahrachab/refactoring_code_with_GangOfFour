@@ -19,6 +19,10 @@ public class Menu extends JFrame {
 
 	public static void main(String[] args) {
 		
+<<<<<<< HEAD
+=======
+		FormZoo.getEnclos();
+>>>>>>> 64746c7b7c0312bc71961e9fc5be617da7199b8b
 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

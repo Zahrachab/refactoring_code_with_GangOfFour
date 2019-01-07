@@ -48,9 +48,41 @@ public class FormZoo extends JFrame implements ActionListener{
 
 
 
+<<<<<<< HEAD
 	public static void main(String[] args) {
 
 
+=======
+
+		paludariumCreator.setNextCreator(cageCreator);
+		cageCreator.setNextCreator(insectariumCreator);
+		insectariumCreator.setNextCreator(aquariumCreator);
+		aquariumCreator.setNextCreator(voliereCreator);
+		voliereCreator.setNextCreator(paludariumCreator);
+
+		return paludariumCreator;
+	}
+
+
+
+	public static void getEnclos()
+	{
+		Enclos enclo;
+		EnclosCreator creator= getChainOfEnclosCreators();
+		EnclosAccessDataImp impl= new EnclosAccessDataFileImp();
+		ArrayList<ArrayList<Object>> list = impl.GetAlEnclos(); //creator.getAllSavedEnclos();
+		if(list!=null) {
+			for (int i = 0; i < list.size() - 1; i++) {
+				enclo = creator.traiterCreation2(list.get(i));
+				enclos.add(enclo);
+
+			}
+		}
+	}
+	public static void main(String[] args) {
+
+
+>>>>>>> 64746c7b7c0312bc71961e9fc5be617da7199b8b
 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
