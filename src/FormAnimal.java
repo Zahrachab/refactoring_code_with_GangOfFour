@@ -30,11 +30,7 @@ public class FormAnimal extends JFrame implements ActionListener
 	private JTextField entrerDate = new JTextField();
 	private JTextField entrerNomEspece = new JTextField();
 	private JComboBox<String> espece = new JComboBox<String>(new String[]{"Insecte", "Mammifere", "Arachnide","Oiseau","Poisson","Reptile","Amphibien"});
-<<<<<<< HEAD
 	private JComboBox<String> etat_sante = new JComboBox<String>(new String[]{"GravementMalade", "Malade", "BonneSante"});
-=======
-	private JComboBox<String> etat_sante = new JComboBox<String>(new String[]{"Gravement malade", "Malade", "Bonne sante"});
->>>>>>> 64746c7b7c0312bc71961e9fc5be617da7199b8b
 	private Zoo z ; 
 	private Animal nvAnimal = new Animal(); 
 	private int numero_enclos ; 
