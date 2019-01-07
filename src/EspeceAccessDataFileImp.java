@@ -93,11 +93,7 @@ public class EspeceAccessDataFileImp implements EspeceAccessDataImp {
 		ArrayList<ArrayList<Object>> list = new ArrayList<ArrayList<Object>>();
 		BufferedReader input = null;
 		int trv=0;
-<<<<<<< HEAD
 		String filename = "D://espece.txt";
-=======
-		String filename = "espece.txt";
->>>>>>> 64746c7b7c0312bc71961e9fc5be617da7199b8b
 		try{
 			input = new BufferedReader(new FileReader(filename));
 			// outer while (process lines)
