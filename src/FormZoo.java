@@ -44,41 +44,13 @@ public class FormZoo extends JFrame implements ActionListener{
 	private JLabel labelNombreMax = new JLabel("Nombre max de cases");
 	private JLabel labelMaximum = new JLabel("");
 	private Modif placer;
-	public static TreeSet<Enclos> enclos = new TreeSet<Enclos>();
-
-	private static EnclosCreator getChainOfEnclosCreators(){
-
-		EnclosCreator paludariumCreator = PaludariumCreator.getInstance();
-		EnclosCreator cageCreator = CageCreator.getInstance();
-		EnclosCreator insectariumCreator =InsectariumCreator.getInstance();
-		EnclosCreator aquariumCreator = AquariumCreator.getInstance();
-		EnclosCreator voliereCreator = VoliereCreator.getInstance();
-		EnclosAccessDataImp enclosdataAccessImpl= new EnclosAccessDataFileImp();
-		EnclosCreator.setAccessData(enclosdataAccessImpl);
+	public static  TreeSet<Enclos> enclos= new TreeSet<Enclos>();
 
 
-		paludariumCreator.setNextCreator(cageCreator);
-		cageCreator.setNextCreator(insectariumCreator);
-		insectariumCreator.setNextCreator(aquariumCreator);
-		aquariumCreator.setNextCreator(voliereCreator);
-		voliereCreator.setNextCreator(paludariumCreator);
 
-		return paludariumCreator;
-	}
-	
 	public static void main(String[] args) {
 
-		Enclos enclo;
-		EnclosCreator creator= getChainOfEnclosCreators();
-		EnclosAccessDataImp impl= new EnclosAccessDataFileImp();
-		ArrayList<ArrayList<Object>> list = impl.GetAlEnclos(); //creator.getAllSavedEnclos();
-		if(list!=null) {
-			for (int i = 0; i < list.size()-1; i++) {
-				enclo = creator.traiterCreation2(list.get(i));
-				enclos.add(enclo);
 
-			}
-		}
 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -94,6 +66,7 @@ public class FormZoo extends JFrame implements ActionListener{
 
 
 	public FormZoo() {
+
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 616, 567);
 		setVisible(true);

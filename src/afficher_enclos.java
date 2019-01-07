@@ -41,38 +41,9 @@ public class afficher_enclos extends JFrame {
 		Enclos e = new Cage(1,2,3,5, TypeSol.Argile);
 		
 
-		Espece e1 = new Mammifere("lion.esp");
 
-		Espece e2 = new Mammifere("addax.esp");
 
-		Espece e3 = new Insecte("abeille.esp");
-	
-		Espece e4 = new Arachnide("araignee.esp");
-	
-		Espece e5 = new Oiseau("autruche.esp");
-		
-		Espece e6 = new Mollusque("escargot.esp");
-	
-		Espece e7 = new Mammifere("mouton.esp");
-		
-		Espece e8 = new Insecte("fourmi.esp");
 
-		Espece e9 = new Amphibien("crapaud_commun.esp");
-
-try{
-		e.ajouterAnimal(new Animal(e1));
-		e.ajouterAnimal(new Animal(e2));
-		e.ajouterAnimal(new Animal(e3));
-		e.ajouterAnimal(new Animal(e4));
-		e.ajouterAnimal(new Animal(e5));
-		e.ajouterAnimal(new Animal(e6));
-		e.ajouterAnimal(new Animal(e7));
-		e.ajouterAnimal(new Animal(e8));
-		e.ajouterAnimal(new Animal(e9));
-}
-catch(NonCompatible ex){
-	JOptionPane.showMessageDialog(null,ex.getMessage());
-}
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

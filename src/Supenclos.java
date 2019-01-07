@@ -78,7 +78,7 @@ public class Supenclos extends JFrame implements ActionListener {
 		Component verticalStrut_2 = Box.createVerticalStrut(20);
 		contentPane.add(verticalStrut_2, BorderLayout.SOUTH);
 		
-		Iterator<Enclos> it = FormZoo.enclos.iterator();
+		Iterator<Enclos> it = zoo.getEnclos().iterator();
 		while (it.hasNext()){
 			comboBox.addItem(it.next());
 		}
@@ -90,8 +90,8 @@ public class Supenclos extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
-		FormZoo.enclos.remove(comboBox.getSelectedItem());
-		JOptionPane.showMessageDialog(null, "Enclos supprimé avec succes");
+		z.getEnclos().remove(comboBox.getSelectedItem());
+		JOptionPane.showMessageDialog(null, "Enclos supprimï¿½ avec succes");
 		this.dispose();
 	
 	}

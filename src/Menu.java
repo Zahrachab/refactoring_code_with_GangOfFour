@@ -19,31 +19,7 @@ public class Menu extends JFrame {
 
 	public static void main(String[] args) {
 		
-		Enclos e1 = new Aquarium(001, 3, 2, 10, 60, TypeEau.Douce);
-		Enclos e2 = new Insectarium(2, 5, 2, 20);
-		Enclos e3 = new Aquarium(3, 4, 2, 12, 80, TypeEau.Salee);
-		Enclos e4 = new Cage(4,20,10,3,TypeSol.Plantes);
-		Enclos e5 = new Paludarium(5,30,10,4,TypeSol.Argile,100);
-		Enclos e6 = new Voliere(6, 10, 12, 10, 10);
-		Enclos e7 = new Cage(7, 50, 10, 6, TypeSol.Roches);
-		Enclos e8 = new Cage(8,35,10,4,TypeSol.Plantes);
-		Enclos e9 = new Paludarium(9,50,10,3,TypeSol.Glaces, 200);
-		
-		FormZoo.enclos.add(e1);FormZoo.enclos.add(e2);FormZoo.enclos.add(e3);FormZoo.enclos.add(e4);
-		FormZoo.enclos.add(e5);FormZoo.enclos.add(e6);FormZoo.enclos.add(e7);FormZoo.enclos.add(e8);FormZoo.enclos.add(e9);
-		
-		Animal a1 = new Animal(new Espece("lion.esp"));
-		Animal a2 = new Animal(new Espece("lion.esp"));
-		Animal a3 = new Animal(new Espece("lion.esp"));
-		Animal a4 = new Animal(new Espece("mouton.esp"));
-		Animal a5 = new Animal(new Espece("abeille.esp"));
-		Animal a6 = new Animal(new Espece("abeille.esp"));
-		Animal a7 = new Animal(new Espece("abeille.esp"));
-		
-		Orienteranim.animaux.add(a1);Orienteranim.animaux.add(a2);Orienteranim.animaux.add(a3);Orienteranim.animaux.add(a4);
-		Orienteranim.animaux.add(a5);Orienteranim.animaux.add(a6);Orienteranim.animaux.add(a7);
-		
-		
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

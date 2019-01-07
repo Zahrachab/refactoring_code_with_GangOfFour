@@ -160,7 +160,7 @@ public class formulaireEnclos extends JFrame {
     			try{
     	
         			zoo.ajouterEnclos(enclos);
-        			formulaireZoo.enclos.add(enclos);
+        			FormZoo.enclos.add(enclos);
         			JOptionPane.showMessageDialog(null,"Enclos ajoute avec succes");
         		}
         			catch (Exception excep){

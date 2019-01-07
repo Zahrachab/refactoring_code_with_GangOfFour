@@ -28,15 +28,14 @@ public class FormAnimal extends JFrame implements ActionListener
 	private JTextField entrerRace = new JTextField();
 	JTextField entrerPoids = new JTextField();
 	private JTextField entrerDate = new JTextField();
-
-	private JComboBox<String> espece = new JComboBox<String>(new String[]{"abeille", "addax","araignee","autruche","crapaud_commun","escargot","fourmi","lion","mouton","poisson_mandarin"});
-	private JComboBox<String> etat_sante = new JComboBox<String>(new String[]{"Gravement malade", "Malade", "Bonne sante"});
+	private JTextField entrerNomEspece = new JTextField();
+	private JComboBox<String> espece = new JComboBox<String>(new String[]{"Insecte", "Mammifere", "Arachnide","Oiseau","Poisson","Reptile","Amphibien"});
+	private JComboBox<String> etat_sante = new JComboBox<String>(new String[]{"GravementMalade", "Malade", "BonneSante"});
 	private Zoo z ; 
 	private Animal nvAnimal = new Animal(); 
 	private int numero_enclos ; 
-	private Enclos enclos; 
-	
-	
+	private Enclos enclos;
+
 	public FormAnimal(Zoo zoo) 
 	{
 		z= zoo; 
@@ -61,29 +60,37 @@ public class FormAnimal extends JFrame implements ActionListener
         
 		espece.setBounds( 400, 70, 150, 20 );
 		contentPane.add( espece );
-		
+
+
+		JLabel LabelNom = new JLabel("Nom de l'éspèce");
+		LabelNom.setBounds(10,120,300,20);
+		contentPane.add(LabelNom);
+
+		entrerNomEspece.setText("");
+		entrerNomEspece.setBounds( 400, 120, 150, 20 );
+		contentPane.add(entrerNomEspece);
 
 		 JLabel LabelRace = new JLabel("Race"); 
-	     LabelRace.setBounds(10,120,300,20); 
+	     LabelRace.setBounds(10,170,300,20);
 	     contentPane.add( LabelRace);
 	     
 	     entrerRace.setText("");
-	     entrerRace.setBounds( 400, 120, 150, 20 );
+	     entrerRace.setBounds( 400, 170, 150, 20 );
 	     contentPane.add(entrerRace);
-	  
+
 	   JLabel LabelDate = new JLabel("Date de naissance"); 
-	   LabelDate.setBounds(10,170,300,20); 
+	   LabelDate.setBounds(10,220,300,20);
 	   contentPane.add(LabelDate);
 	 	
 	   entrerDate.setText("");
-	   entrerDate.setBounds( 400, 170, 150, 20 );
+	   entrerDate.setBounds( 400, 220, 150, 20 );
 	   contentPane.add(entrerDate);
 
        JLabel LabelSante = new JLabel("Etat de sante "); 
-       LabelSante.setBounds(10,218,300,20); 
+       LabelSante.setBounds(10,270,300,20);
        contentPane.add(LabelSante); 
        
-	   etat_sante.setBounds( 400, 220, 150, 20 );
+	   etat_sante.setBounds( 400, 270, 150, 20 );
 	   contentPane.add(etat_sante);
 	    
 	   
@@ -119,69 +126,12 @@ public class FormAnimal extends JFrame implements ActionListener
 				nvAnimal.setDate(entrerDate.getText()); 
 				nvAnimal.setPoids(Integer.parseInt(entrerPoids.getText()));
 
-				String s = espece.getSelectedItem().toString(); 
-				switch (s)
-				{
-					case "abeille" :
-						Espece esp1 = new Insecte("abeille.esp");   
-						nvAnimal.setEspece(esp1);
-						break; 
-					case "addax" :
-						Espece esp2 = new Mammifere("addax.esp"); 
-						nvAnimal.setEspece(esp2);
-						break; 
-					case "araignee" :
-						Espece esp3 = new Arachnide("araignee.esp");
-						nvAnimal.setEspece(esp3); 
-						break; 
-					case "autruche":
-						Espece esp4 = new Oiseau("autruche.esp");
-						nvAnimal.setEspece(esp4); 
-						break; 
-					case "crapaud_commun":
-						Espece esp5 = new Amphibien("crapaud_commun.esp"); 
-						nvAnimal.setEspece(esp5); 
-						break; 
-					case "escargot" :
-						Espece esp6 = new Mollusque("escargot.esp"); 
-						nvAnimal.setEspece(esp6); 
-						break ; 
-					case "fourmi" :
-						Espece esp7 = new Insecte("fourmi.esp"); 
-						nvAnimal.setEspece(esp7); 
-						break; 
-					case "lion" : 
-						Espece esp8 = new  Mammifere("lion.esp"); 
-						nvAnimal.setEspece(esp8); 
-						break ; 
-					case "mouton" :
-						Espece esp9 = new Mammifere("mouton.esp"); 
-						nvAnimal.setEspece(esp9); 
-						break ; 
-					case "poisson_mandarin" :
-						Espece esp10 = new Poisson("poisson_mandarin.esp"); 
-						nvAnimal.setEspece(esp10); 
-						break;
-			
-				}
-
-				String e= etat_sante.getSelectedItem().toString(); 
-				switch (e)
-				{
-				case "Gravement malade" : 
-					EtatSante etat1 = EtatSante.GravementMalade; 
-				    nvAnimal.setSante(etat1);
-					break ; 
-				case  "Malade" :
-					EtatSante etat2 = EtatSante.Malade; 
-					 nvAnimal.setSante(etat2);
-					 break; 
-				case "Bonne sante":
-					EtatSante etat3 = EtatSante.BonneSante; 
-					 nvAnimal.setSante(etat3);
-					 break; 
-					
-				}
+				String type = espece.getSelectedItem().toString();
+                String nom= entrerNomEspece.getText();
+                Espece e = z.getEspeceByName(nom);
+                nvAnimal.setEspece(e);
+                String sante= etat_sante.getSelectedItem().toString();
+				nvAnimal.setSante(EtatSante.valueOf(sante));
 				
 			}
 			else

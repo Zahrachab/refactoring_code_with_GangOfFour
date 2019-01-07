@@ -35,21 +35,7 @@ public class PlanZoo extends JFrame {
 	static public ArrayList<JButton> cases = new ArrayList<JButton>();
 	
 	public static void main(String[] args) {
-		
-		Modif p = new Modif(40);
 
-		
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PlanZoo frame = new PlanZoo(40);
-					frame.setVisible(true);
-					frame.placerEnclos(FormZoo.enclos);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 		
 	}
 
@@ -113,16 +99,7 @@ public class PlanZoo extends JFrame {
 		JButton Poisson_mandarin = new JButton("Poisson_mandarin");
 		pileEspeces.add(Poisson_mandarin);
 		
-		Poisson_mandarin.addActionListener(new CouleurList(Poisson_mandarin,new Espece("poisson_mandarin.esp")));
-		Mouton.addActionListener(new CouleurList(Mouton,new Espece("mouton.esp")));
-		Lion.addActionListener(new CouleurList(Lion,new Espece("lion.esp"))); 
-		Fourmi.addActionListener(new CouleurList(Fourmi,new Espece("fourmi.esp")));
-		Escargot.addActionListener(new CouleurList(Escargot,new Espece("escargot.esp")));
-		Crapaud_commun.addActionListener(new CouleurList(Crapaud_commun,new Espece("crapaud_commun.esp")));
-		Autruche.addActionListener(new CouleurList(Autruche,new Espece("autruche.esp")));
-		Araignee.addActionListener(new CouleurList(Araignee,new Espece("araignee.esp")));
-		Addax.addActionListener(new CouleurList(Addax,new Espece("addax.esp")));
-		Abeille.addActionListener(new CouleurList(Abeille,new Espece("abeille.esp")));
+
 		
 		
 		for (int i =0 ; i<cases.size() ; i++){

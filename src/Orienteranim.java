@@ -82,7 +82,7 @@ public class Orienteranim extends JFrame implements ActionListener{
 		Component verticalStrut_2 = Box.createVerticalStrut(20);
 		contentPane.add(verticalStrut_2, BorderLayout.SOUTH);
 		
-		Iterator<Enclos> it = FormZoo.enclos.iterator();
+		Iterator<Enclos> it = zoo.getEnclos().iterator();
 		while (it.hasNext()){
 			comboBox.addItem(it.next());
 		}
@@ -97,7 +97,7 @@ public class Orienteranim extends JFrame implements ActionListener{
 			((Enclos)comboBox.getSelectedItem()).ajouterAnimal(a);
 			Orienteranim.animaux.add(a);
 			this.dispose();
-			JOptionPane.showMessageDialog(null, "Animal ajouté avec succes");
+			JOptionPane.showMessageDialog(null, "Animal ajoutï¿½ avec succes");
 		}
 		catch(Exception e){
 			JOptionPane.showMessageDialog(null, "Animal incompatible");
